@@ -69,3 +69,4 @@ void Player::display()
 {
 	mvwaddch(curwin, yLoc, xLoc, character);
 }
+

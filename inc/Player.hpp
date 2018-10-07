@@ -3,7 +3,7 @@
 #include <ncurses.h>
 #include <iostream>
 #include <curses.h>
-#include "Shoot.hpp"
+//#include "../inc/General.hpp"
 
 class Player
 {
@@ -19,12 +19,11 @@ public:
 
 private:
 	int		xLoc, yLoc, xMax, yMax;
-	char	character;
+	char	character; ////////////////////
 	WINDOW * curwin;
 
-	Shoot * generateShoot();
 	~Player();
-
+	
 };
 
 #endif

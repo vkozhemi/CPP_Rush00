@@ -1,10 +1,10 @@
 NAME = ft_retro
 
 CC = clang++
-FLAGS = -lncurses
+FLAGS = 
 #-Wall -Wextra -Werror
 
-SRCS = main.cpp Player.cpp
+SRCS = main.cpp Player.cpp Enemy.cpp
 OBJ = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
 
 OBJ_DIR = ./objects/
@@ -13,7 +13,7 @@ SRC_DIR = ./srcs/
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJ) -o $(NAME) -lncurses
 	@tput setaf 2; echo made
 
 $(OBJ): | $(OBJ_DIR)
