@@ -1,36 +1,28 @@
 NAME = ft_retro
 
-CC = clang++
-FLAGS = 
-#-Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror 
 
-SRCS = main.cpp Player.cpp Enemy.cpp
-OBJ = $(addprefix $(OBJ_DIR), $(SRCS:.cpp=.o))
+SRC =	Main.cpp \
+		Game.cpp \
+		Player.cpp \
+		Enemies.cpp \
+		Background.cpp \
+		Boss.cpp \
 
-OBJ_DIR = ./objects/
-SRC_DIR = ./srcs/
+OBJ = $(SRC:.cpp=.o) 
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME) -lncurses
-	@tput setaf 2; echo made
+	clang++ $(FLAGS) -o $(NAME) $(OBJ) -lncurses
 
-$(OBJ): | $(OBJ_DIR)
-
-$(OBJ_DIR):
-	@mkdir $(OBJ_DIR)
-
-$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
-	@$(CC) -c $< -o $@ $(FLAGS)
+%.o : %.cpp Game.hpp
+	clang++ $(FLAGS) -o $@ -c $< 
 
 clean:
-	@rm -f $(OBJ)
-	@tput setaf 4; echo cleaned
+	rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
-	@rm -rf $(OBJ_DIR)
-	@tput setaf 1; echo fcleaned
+	rm -f $(NAME)
 
 re: fclean all
