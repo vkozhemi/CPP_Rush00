@@ -137,6 +137,7 @@ int Player::getmv()
 			shoot();
 			break;
 		default:
+            //shoot();
 			break;
 	}
 	return choice;
