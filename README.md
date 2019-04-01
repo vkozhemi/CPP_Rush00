@@ -1,9 +1,10 @@
 # newRetroGame
-
-![Image alt](https://github.com/vkozhemi/CPP_Rush00/raw/master/img/1.png)
+Battlestar Galactica
 
 The goal of this project is to implement a simplistic shoot-em-up-style game in your terminal. For those of you who don’t know what that kind of game is (shame on you, by the way), have a look at Gradius, R-Type, etc...
 You will use a ’screen’ made up of a grid of ’squares’, that you can equate to the characters on your terminal, so that the entities of your game are each represented by a character on screen.
+
+![Image alt](https://github.com/vkozhemi/CPP_Rush00/raw/master/img/1.png)
 
 Here are the basic requirements :
 	- Single-player
