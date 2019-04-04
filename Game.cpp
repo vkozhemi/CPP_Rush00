@@ -88,6 +88,8 @@ void 	Game::run() {
 	int y;
 	int xOld;
 	int yOld;
+	// char enemy = '#';
+	// char enem[4] = {'#', 'V', 'Y', '@'};
 	int	t = 0;
 	time_t z_time = time(0);
 	getmaxyx(stdscr, y, x);
@@ -132,13 +134,14 @@ void 	Game::run() {
 					}
 				}
 			}
-
-		if (t % 13 == 0)
+		// enemy = enem[rand()%4 + 1];
+		if (t % 5 == 0)
 			for (int i = 0; i < 150; i++) {
 				if (enemies[i].pos.exist) {
 					enemies[i].move(y);
-					if (enemies[i].pos.exist)
-						mvwprintw(stdscr, enemies[i].pos.y, enemies[i].pos.x, "%c", 'V');
+					if (enemies[i].pos.exist) {
+						mvwprintw(stdscr, enemies[i].pos.y, enemies[i].pos.x, "%C", L'🛰'); /////////
+					}
 					if (p->yLoc == enemies[i].pos.y && p->xLoc == enemies[i].pos.x) {
 						health -= 20;
 						if (health <= 0) {
@@ -190,7 +193,7 @@ void 	Game::run() {
 
 //------------------------------------------Background-----------------------------------
 		
-		if (t % 5 == 0)
+		if (t % 7 == 0)
 			for (int i = 0; i < 2; i++) {
 				for (int l = 0; l < 150; l++) {
 					if (!background[l].pos.exist) {
@@ -221,15 +224,15 @@ void 	Game::run() {
 		// }
 
 
-		if (t % 5 == 0)
+		if (t % 2 == 0)
 			for (int i = 0; i < 150; i++) {
 				background[i].move(y);
 				if (background[i].pos.exist)
-					mvwprintw(stdscr, background[i].pos.y, background[i].pos.x, "%c", '.');
+					mvwprintw(stdscr, background[i].pos.y, background[i].pos.x, "%lc", L'.');
 			}
 //-----------------------------------------------------------------------------------------
 
-		if (t % 4 == 0)
+		if (t % 3 == 0)
 			for (int i = 0; i < 20; i++) {
 				if (p->shots[i].exist) {
 					mvwaddch(stdscr, p->shots[i].y, p->shots[i].x, ' ');
